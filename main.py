@@ -1,18 +1,35 @@
-player_health = 100
-enemy_health = 100
-turn_number = 1
+from characters import Character
+from combat import combat_start
 
-while player_health > 0 or enemy_health > 0:
-    print(f"You are on turn number: {turn_number}")
-    turn_number += 1
-    enemy_health -= 10
-    print(f"enemy health now at: {enemy_health}/100")
-    if enemy_health <= 0:
-        print(f"Enemy defeated on turn number: {turn_number}")
-        break
-    player_health -= 15
-    print(f"player health now at: {player_health}/100")
-    if player_health <= 0:
-        print(f"You have died on turn number: {turn_number}")
-        break
+
+def start_game():
+    print(f"\nNew game started")
+    player_name = input("Enter your name: ".strip())
+    player = Character(name=player_name)
+    print(f"Welcome to Text_Fight, {player.name}")
     input()
+    print(f"starting encounter...")
+    input()
+    enemy = Character(name="slime", health=10, attack_power=1, defense=0)
+    print(f"You encounter a {enemy.name}.")
+    input()
+    combat_start(player, enemy)
+
+
+def main_menu():
+    while True:
+        print(f"===TEXT_FIGHT===")
+        print(f"1. NEW GAME")
+        print(f"2. EXIT")
+        choice = input()
+        if choice == "1":
+            start_game()
+        elif choice == "2":
+            break
+        else:
+            print(f"===TEXT_FIGHT===")
+            print(f"1. NEW GAME")
+            print(f"2. EXIT")
+
+if __name__ == "__main__":
+    main_menu()
