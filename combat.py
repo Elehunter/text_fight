@@ -1,4 +1,4 @@
-def combat_start(player: Character, enemy: Character):
+def combat_start(player, enemy):
     turn_number = 1
 
     while player.is_alive() and enemy.is_alive():
@@ -6,6 +6,7 @@ def combat_start(player: Character, enemy: Character):
         player.attack(enemy)
         if not enemy.is_alive():
             print(f"{enemy.name} slain!")
+            player.gain_exp(enemy.exp_reward)
             break
 
         enemy.attack(player)
