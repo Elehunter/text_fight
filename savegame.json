@@ -1,0 +1,10 @@
+{
+    "name": "Elegos",
+    "health": 101,
+    "max_health": 101,
+    "attack_power": 2,
+    "defense": 1,
+    "level": 2,
+    "exp": 0,
+    "exp_to_level": 2
+}

@@ -5,13 +5,13 @@ def combat_start(player, enemy):
         print(f"---Turn {turn_number}---")
         player.attack(enemy)
         if not enemy.is_alive():
-            print(f"{enemy.name} slain!")
+            print(f"\n{enemy.name} slain!")
             player.gain_exp(enemy.exp_reward)
             break
 
         enemy.attack(player)
         if not player.is_alive():
-            print(f"{player.name} has been vanquished on turn {turn_number}")
+            print(f"{player.name} has died!")
 
         turn_number += 1
         input()
