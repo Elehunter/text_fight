@@ -35,41 +35,15 @@ class Player(Character):
         self.level += 1
         self.exp_to_level = int(self.exp_to_level + 1)
 
-        print(f"\n{self.name} is now level {self.level}!")
-        print(f"max health: {self.max_health} + 1")
-        print(f"attack power: {self.attack_power} + 1")
-        print(f"defense: {self.defense} + 1")
-
         self.max_health += 1
         self.health = self.max_health
         self.attack_power += 1
         self.defense += 1
 
-    def to_dict(self):
-        return {
-            "name": self.name,
-            "health": self.health,
-            "max_health": self.max_health,
-            "attack_power": self.attack_power,
-            "defense": self.defense,
-            "level": self.level,
-            "exp": self.exp,
-            "exp_to_level": self.exp_to_level
-        }
-
-    @classmethod
-    def from_dict(cls, data):
-        player = cls(
-            name=data["name"],
-            health=data["max_health"],
-            attack_power=data["attack_power"],
-            defense=data["defense"],
-        )
-        player.health = data["health"]
-        player.level = data["level"]
-        player.exp = data["exp"]
-        player.exp_to_level = data["exp_to_level"]
-        return player
+        print(f"{self.name} is now level {self.level}!")
+        print(f"health increaed by 1")
+        print(f"attack power increased by 1")
+        print(f"defense increased by 1")
 
 class Enemy(Character):
     def __init__(self, name="noname", health=10, attack_power=1, defense=0, exp_reward=1):
