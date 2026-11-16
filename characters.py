@@ -10,6 +10,7 @@ class Character:
         return self.health > 0
 
     def attack(self, target):
+        input()
         damage_dealt = max(0, self.attack_power - target.defense)
         target.health = target.health - damage_dealt
         print(f"{self.name} hits {target.name} for {damage_dealt}!")

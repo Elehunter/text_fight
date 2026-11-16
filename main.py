@@ -3,16 +3,19 @@ from characters import Player
 from enemies import spawn_enemy
 from combat import combat_start
 from save_system import save_game, load_game
+from ui import console, show_main_menu
 
 
 def game_loop(player):
     while player.is_alive():
         enemy = spawn_enemy("slime")
         combat_start(player, enemy)
+
         if not player.is_alive():
             break
-        print("\n1. Next Fight")
-        print("2. Save & Quit")
+
+        console.print("\n[bold cyan]1.[/bold cyan] Next Fight")
+        console.print("[bold cyan]2.[/bold cyan] Save & Quit")
         choice = input()
         if choice == "2":
             save_game(player)
@@ -30,10 +33,7 @@ def start_game():
 
 def main_menu():
     while True:
-        print("===TEXT_FIGHT===")
-        print("1. NEW GAME")
-        print("2. LOAD GAME")
-        print("3. EXIT")
+        show_main_menu()
         choice = input()
         if choice == "1":
             start_game()
